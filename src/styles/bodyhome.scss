@@ -42,17 +42,32 @@
   justify-content: center;
   align-items: center;
   gap: 2rem;
+  
+  font-family: app.$font-family, sans-serif;
 
   //get started button
   #get_started
   {
+    border: none;
+    background-color: app.$primary-color;
+    padding: 10px 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 25px;
 
+    p {
+      padding: 0;
+      margin: 0;
+    }
   }
 
   //learn more button
   #learn_more
   {
-
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight: 600;
   }
 
 }

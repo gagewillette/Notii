@@ -1,6 +1,7 @@
 import React from "react";
 import BodyHome from "../comps/bodyhome";
 import Header from "../comps/header";
+import Features from "../comps/features";
 
 export default function Home() {
   return (
@@ -9,6 +10,8 @@ export default function Home() {
 
       <Header />
       <BodyHome /> 
+
+      <Features />
       
     </>
   );

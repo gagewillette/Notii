@@ -4,14 +4,15 @@ $background-color: #FBFDFD;
 $primary-color: #4FBA89;
 $secondary-color: #9AADD7;
 $accent-color: #787DCA;
-$text-color: 0B1C1A;
+$text-color: #0B1C1A;
+$font-family: "Bricolage Grotesque";
 
 body {
     margin: 0;
     padding: 0;
     height : 100%;
 
-    font-family: "Bricolage Grotesque", sans-serif;
+    font-family: $font-family, sans-serif;
 
     background-color: $background-color;
 

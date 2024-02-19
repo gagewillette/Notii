@@ -17,9 +17,9 @@ export default function BodyHome() {
 
         <div className="body-home-splash-buttons">
           <div className="get-started-button">
-            <button id="get_started">Get Started</button>
+            <button id="get_started"><p>Get Started</p></button>
           </div>
-          <div className="learn-more-button"><button id="learn_more">Learn More →</button></div>
+          <div className="learn-more-button"><button id="learn_more"><p>Learn More →</p></button></div>
         </div>
       </div>
     </>
