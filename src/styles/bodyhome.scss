@@ -1,0 +1,32 @@
+@use "../app.scss";
+
+.body-home {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+}
+
+.body-home-splash-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: app.$text-color;
+
+  margin-top: 20vh;
+
+  h1 {
+    margin: 0;
+
+    font-size: 3rem;
+    font-weight: 700;
+  }
+
+  h2 {
+    margin: 0;
+
+    font-size: 2rem;
+    font-weight: 400;
+  }
+}
