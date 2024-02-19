@@ -14,6 +14,13 @@ export default function BodyHome() {
             <h2>The leader in AI notetaking for students.</h2>
           </div>
         </div>
+
+        <div className="body-home-splash-buttons">
+          <div className="get-started-button">
+            <button id="get_started">Get Started</button>
+          </div>
+          <div className="learn-more-button"><button id="learn_more">Learn More →</button></div>
+        </div>
       </div>
     </>
   );

@@ -8,7 +8,8 @@ export default function Home() {
       {/* idk if i actually want a header or not */}
 
       <Header />
-      <BodyHome />
+      <BodyHome /> 
+      
     </>
   );
 }

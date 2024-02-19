@@ -1,16 +1,20 @@
 @use "../app.scss";
 
+//wrapper
 .body-home {
   display: flex;
   flex-direction: column;
-  height: 90vh;
+  height: 60vh;
+  gap: 4rem;
 }
 
+//styles for splash text 
 .body-home-splash-text {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 10px;
 
   color: app.$text-color;
 
@@ -29,4 +33,26 @@
     font-size: 2rem;
     font-weight: 400;
   }
+}
+
+//styles for splash buttons
+.body-home-splash-buttons
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  //get started button
+  #get_started
+  {
+
+  }
+
+  //learn more button
+  #learn_more
+  {
+
+  }
+
 }
