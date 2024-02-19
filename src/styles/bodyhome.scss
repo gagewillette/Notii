@@ -4,11 +4,11 @@
 .body-home {
   display: flex;
   flex-direction: column;
-  height: 60vh;
+  height: 65vh;
   gap: 4rem;
 }
 
-//styles for splash text 
+//styles for splash text
 .body-home-splash-text {
   display: flex;
   flex-direction: column;
@@ -16,7 +16,7 @@
   align-items: center;
   gap: 10px;
 
-  color: app.$text-color;
+  color: app.$neutral-dark;
 
   margin-top: 20vh;
 
@@ -36,24 +36,25 @@
 }
 
 //styles for splash buttons
-.body-home-splash-buttons
-{
+.body-home-splash-buttons {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  
+
   font-family: app.$font-family, sans-serif;
 
   //get started button
-  #get_started
-  {
+  #get_started {
     border: none;
     background-color: app.$primary-color;
+    color: app.$neutral-light;
     padding: 10px 40px;
     font-size: 1rem;
     font-weight: 600;
     border-radius: 25px;
+
+    cursor: pointer;
 
     p {
       padding: 0;
@@ -61,13 +62,20 @@
     }
   }
 
+  #get_started:hover {
+    background-color: app.$primary-color-2;
+  }
+
   //learn more button
-  #learn_more
-  {
+  #learn_more {
     border: none;
     background-color: transparent;
     font-size: 1rem;
     font-weight: 600;
+    cursor: pointer;
   }
 
+  #learn_more:hover {
+    text-decoration: underline;
+  }
 }
