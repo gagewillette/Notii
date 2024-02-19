@@ -1,11 +1,14 @@
-import notiiLogo from "./assets/notii.svg";
 import "./app.scss";
+import Home from "./js/pages/home";
 
 function App() {
-  return <>
-   
-   
-    </>;
+  //TODO: implement router
+
+  return (
+    <>
+      <Home />
+    </>
+  );
 }
 
 export default App;
