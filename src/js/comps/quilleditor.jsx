@@ -16,8 +16,7 @@ const QuillEditor = ({ value, onChange }) => {
             [{ size: []}],
             ["bold", "italic", "underline", "strike", "blockquote"],
             [{ list: "ordered" }, { list: "bullet" }],
-            ["link", "image", "video"],
-            ["clean"],
+            ["link", "image"],
           ],
         },
       });
