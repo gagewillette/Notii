@@ -1,0 +1,17 @@
+@use "../app.scss";
+
+.ql-toolbar {
+  border-radius: 4px;
+  box-shadow: 3px 5px 4px rgba(0, 0, 0, 0.3);
+}
+
+.ql-container {
+  border-radius: 4px;
+  font-size: 5rem;
+}
+
+.ql-editor {
+  min-height: 300px;
+  box-shadow: 3px 5px 4px rgba(0, 0, 0, 0.3);
+  font-family: app.$font-family, sans-serif;
+}

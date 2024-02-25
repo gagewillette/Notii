@@ -1,4 +1,34 @@
-.editor-wrapper
-{
-    margin: 10% 20%;
+@use "../app.scss";
+
+.editor-wrapper {
+  margin: 10% 20%;
+}
+
+#button-wrapper-text {
+  font-size: 1.25rem;
+}
+
+#start-ai-button {
+  font-family: app.$font-family, sans-serif;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1rem;
+
+
+
+
+    h3 {
+        margin: 0;
+        padding: 10px 45px;
+        margin: 0px 10px;    
+        background-color: app.$primary-color-2;
+        border-radius: 20px;
+        color: white;
+    }
+
+
+  :hover {
+    text-decoration: underline;
+  }
 }
