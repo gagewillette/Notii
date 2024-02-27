@@ -8,6 +8,10 @@ const QuillEditor = ({ value, onChange }) => {
   const editorContainerRef = useRef(null);
   const quillRef = useRef(null);
 
+
+
+
+
   useEffect(() => {
     if (editorContainerRef.current && !quillRef.current) {
       const quill = new Quill(editorContainerRef.current, {
@@ -18,7 +22,7 @@ const QuillEditor = ({ value, onChange }) => {
             [{ size: []}],
             ["bold", "italic", "underline", "strike", "blockquote"],
             [{ list: "ordered" }, { list: "bullet" }],
-            ["link", "image"],
+            ["link"],
           ],
         },
       });
