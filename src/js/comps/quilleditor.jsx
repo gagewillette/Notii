@@ -9,9 +9,6 @@ const QuillEditor = ({ value, onChange }) => {
   const quillRef = useRef(null);
 
 
-
-
-
   useEffect(() => {
     if (editorContainerRef.current && !quillRef.current) {
       const quill = new Quill(editorContainerRef.current, {
