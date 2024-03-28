@@ -6,13 +6,22 @@ import { isValidUUID } from "../../../backend/utils";
 export default function BodyHome() {
   const nav = useNavigate();
 
-  const handleGetStartedClick = (e) => {
+  const handleGetStartedClick = () => {
     //this will need to be changed in the future
     //when accounts and other shit are implemeneted kms
+    const cookie = document.cookie;
+    const uuid = cookie.split("=")[1];
+    const isValid = isValidUUID(uuid);
 
-    nav("/signin")
+    console.log(isValid);
 
-
+    isValid.then((value) => {
+      if (value) {
+        nav("/notes");
+      } else {
+        nav("/signin");
+      }
+    });
   };
 
   return (

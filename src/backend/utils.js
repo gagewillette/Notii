@@ -1,10 +1,14 @@
-import {collection, getDocs} from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from './firebase';
 
-export async function isValidUUID(uuid)
-{
-    const q = await getDocs(collection(db, "users"))
+export async function isValidUUID(uuid) {
+    const q = await getDocs(collection(db, "users"));
+    let isValid = false;
     q.forEach((doc) => {
-        console.log(doc.id)
-    })
+        if (doc.id.toString() === uuid) {
+            isValid = true; // Set isValid to true if UUIDs match
+        }
+    });
+    return isValid; 
 }
 
