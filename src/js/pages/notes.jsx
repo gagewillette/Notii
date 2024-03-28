@@ -20,23 +20,33 @@ const NotesEditor = () => {
   });
 
   return (
-    <div className="editor-wrapper">
-      <h2>Notii Editor</h2>
+    <div className="editor-main">
 
-      {isRecording ?( <MicrophoneComponent />) :
-      (<h3 id="button-wrapper-text">
-        Start typing below, or
-        <button onClick={startVoiceDictation} id="start-ai-button">
-          <h3>click me to start Notii AI</h3>
-        </button>
-      </h3> )
-      }
-
-      <QuillEditor value={content} onChange={setContent} />
+    <div className="file-viewer">
+      <h1>File Viewer</h1>
 
     </div>
 
-);
+      <div className="editor-wrapper">
+        <h2>Notii Editor</h2>
+
+        {isRecording ? (
+          <MicrophoneComponent />
+        ) : (
+          <h3 id="button-wrapper-text">
+            Start typing below, or
+            <button onClick={startVoiceDictation} id="start-ai-button">
+              <h3>click me to start Notii AI</h3>
+            </button>
+          </h3>
+        )}
+
+        {/*
+      <QuillEditor value={content} onChange={setContent} />
+        */}
+      </div>
+    </div>
+  );
 };
 
 export default NotesEditor;

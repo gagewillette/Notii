@@ -1,7 +1,25 @@
 @use "../app.scss";
 
-.editor-wrapper {
-  margin: 10% 20%;
+
+.editor-main
+{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+
+.file-viewer
+{
+  flex: 1;
+  border: 1px solid black;
+  height: 100vh;
+}
+
+.editor-wrapper
+{
+  flex: 4;
+  height: 100vh;
 }
 
 #button-wrapper-text {
@@ -14,9 +32,6 @@
   background-color: transparent;
   cursor: pointer;
   font-size: 1rem;
-
-
-
 
     h3 {
         margin: 0;

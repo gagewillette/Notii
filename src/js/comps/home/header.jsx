@@ -1,5 +1,5 @@
-import notiiLogo from "../../assets/notii-inverse.png";
-import "../../styles/header.scss";
+import notiiLogo from "../../../assets/notii-inverse.png";
+import "../../../styles/header.scss";
 
 export default function Header() {
   return (

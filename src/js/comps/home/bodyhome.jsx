@@ -1,6 +1,7 @@
 import React from "react";
-import "../../styles/bodyhome.scss";
+import "../../../styles/bodyhome.scss";
 import { useNavigate } from "react-router-dom";
+import { isValidUUID } from "../../../backend/utils";
 
 export default function BodyHome() {
   const nav = useNavigate();
@@ -8,7 +9,10 @@ export default function BodyHome() {
   const handleGetStartedClick = (e) => {
     //this will need to be changed in the future
     //when accounts and other shit are implemeneted kms
-    nav("/notes");
+
+    nav("/signin")
+
+
   };
 
   return (

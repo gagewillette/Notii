@@ -1,6 +1,6 @@
 import React from "react";
-import "../../styles/features.scss";
-import cloud from "../../assets/cloud_FILL0_wght400_GRAD0_opsz24.svg"
+import "../../../styles/features.scss";
+import cloud from "../../../assets/cloud_FILL0_wght400_GRAD0_opsz24.svg"
 
 export default function Features() {
   return (

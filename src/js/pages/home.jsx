@@ -1,8 +1,8 @@
 import React from "react";
-import BodyHome from "../comps/bodyhome";
-import Header from "../comps/header";
-import Features from "../comps/features";
-import Pricing from "../comps/pricing";
+import BodyHome from "../comps/home/bodyhome";
+import Header from "../comps/home/header";
+import Features from "../comps/home/features";
+import Pricing from "../comps/home/pricing";
 
 export default function Home() {
   return (
