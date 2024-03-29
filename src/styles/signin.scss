@@ -1,0 +1,38 @@
+@use "../app.scss";
+
+.sign-in-wrapper
+{
+    //general styles
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+
+    //flexbox styles
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    background-color: app.$secondary-color-2;
+}
+
+
+//button styles
+#google-sign-in
+{
+    background-color: app.$primary-color;
+    font-family: app.$font-family;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    transition: all 0.3s;
+
+    :hover
+    {
+        background-color: lighten(#4285f4, 20%);
+    }
+}

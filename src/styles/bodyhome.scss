@@ -1,0 +1,134 @@
+@use "../app.scss";
+
+//wrapper
+.body-home {
+  display: flex;
+  flex-direction: column;
+  height: 65vh;
+  gap: 4rem;
+}
+
+//styles for splash text
+.body-home-splash-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  color: app.$neutral-dark;
+
+  margin-top: 20vh;
+
+  h1 {
+    margin: 0;
+
+    font-size: 3rem;
+    font-weight: 700;
+  }
+
+  h2 {
+    margin: 0;
+
+    font-size: 2rem;
+    font-weight: 400;
+  }
+
+  .body-home-subheader {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+   
+  }
+}
+
+.rotating-text-nouns-wrapper {
+  position: relative;
+  width: 200px;
+}
+
+.rotatingText-noun {
+  font-size: 2rem;
+  opacity: 0;
+  position: absolute;
+  top: -1.2rem;
+  right: 0;
+  left: 0;
+  animation-name: rotate;
+  animation-duration: 6s; /* Total duration adjusted for cycling through each */
+  animation-iteration-count: infinite;
+}
+
+.rotatingText-noun:nth-of-type(1) {
+  animation-delay: 0s;
+}
+
+.rotatingText-noun:nth-of-type(2) {
+  animation-delay: 2s; /* Delay adjusted for sequential appearance */
+}
+
+.rotatingText-noun:nth-of-type(3) {
+  animation-delay: 4s;
+}
+
+@keyframes rotate {
+  0%, 100% {
+    opacity: 0;
+  }
+  
+  5%, 30% {
+    opacity: 1;
+  }
+
+  35%, 100% {
+    opacity: 0;
+  }
+}
+
+
+//styles for splash buttons
+.body-home-splash-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  font-family: app.$font-family, sans-serif;
+
+  //get started button
+  #get_started {
+    border: none;
+    background-color: app.$primary-color;
+    color: app.$neutral-light;
+    padding: 10px 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 25px;
+
+    cursor: pointer;
+
+    p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  #get_started:hover {
+    background-color: app.$primary-color-2;
+  }
+
+  //learn more button
+  #learn_more {
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  #learn_more:hover {
+    text-decoration: underline;
+  }
+}
