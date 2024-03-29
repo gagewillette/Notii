@@ -33,7 +33,12 @@ export default function BodyHome() {
           </div>
 
           <div className="body-home-subheader">
-            <h2>The leader in AI notetaking for students.</h2>
+            <h2>The leader in AI notetaking for</h2>
+            <div className="rotating-text-nouns-wrapper">
+              <span className="rotatingText-noun">students.</span>
+              <span className="rotatingText-noun">teachers.</span>
+              <span className="rotatingText-noun">professionals.</span>
+            </div>
           </div>
         </div>
 
@@ -43,11 +48,12 @@ export default function BodyHome() {
               <p>Get Started</p>
             </button>
           </div>
+          {/*
           <div className="learn-more-button">
             <button id="learn_more">
               <p>Learn More →</p>
             </button>
-          </div>
+  </div>*/}
         </div>
       </div>
     </>

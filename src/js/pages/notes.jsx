@@ -4,6 +4,7 @@ import QuillEditor from "../comps/quilleditor";
 import "../../styles/notes.scss";
 import Mousetrap from "mousetrap";
 import MicrophoneComponent from "../comps/microphone";
+import FileViewer from "../comps/file-viewer/fviewer";
 
 const NotesEditor = () => {
   const [content, setContent] = useState("");
@@ -22,15 +23,13 @@ const NotesEditor = () => {
   return (
     <div className="editor-main">
 
-    <div className="file-viewer">
-      <h1>File Viewer</h1>
-
-    </div>
+      {/* This is the file viewer on the left side of the editor */}
+      <FileViewer />
 
       <div className="editor-wrapper">
         <h2>Notii Editor</h2>
 
-        {isRecording ? (
+        {/*isRecording ? (
           <MicrophoneComponent />
         ) : (
           <h3 id="button-wrapper-text">
@@ -39,7 +38,7 @@ const NotesEditor = () => {
               <h3>click me to start Notii AI</h3>
             </button>
           </h3>
-        )}
+        )*/}
 
         {/*
       <QuillEditor value={content} onChange={setContent} />

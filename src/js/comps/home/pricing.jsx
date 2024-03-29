@@ -15,7 +15,7 @@ export default function Pricing() {
           <div className="pricing-div">
             <h2>Free</h2>
             <h3>For the casual note-taker</h3>
-            <h5>$0/month</h5>
+            <h5>$0</h5>
             <h4>✗ Unlimited notes</h4>
             <h4>✗ Unlmited storage</h4>
             <h4>✔ Basic features</h4>
@@ -25,24 +25,12 @@ export default function Pricing() {
           <div className="pricing-div">
             <h2>Pro</h2>
             <h3>For the professional note-taker</h3>
-            <h5>$10/month</h5>
+            <h5>$49.69</h5>
             <h4>✔ Unlimited notes</h4>
             <h4>✔ Unlimited storage</h4>
             <h4>✔ Advanced features</h4>
             <h4>✔ No ads</h4>
             <h4>✔ Priority support</h4>
-          </div>
-          <div className="pricing-div">
-            <h2>Enterprise</h2>
-            <h3>For your whole business</h3>
-
-            <h5>$20/month</h5>
-            <h4>✔ Unlimited notes</h4>
-            <h4>✔ Unlimited storage</h4>
-            <h4>✔ Advanced features</h4>
-            <h4>✔ No ads</h4>
-            <h4>✔ 24/7 support</h4>
-
           </div>
         </div>
       </div>

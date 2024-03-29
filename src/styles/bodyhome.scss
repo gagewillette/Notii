@@ -33,7 +33,60 @@
     font-size: 2rem;
     font-weight: 400;
   }
+
+  .body-home-subheader {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+   
+  }
 }
+
+.rotating-text-nouns-wrapper {
+  position: relative;
+  width: 200px;
+}
+
+.rotatingText-noun {
+  font-size: 2rem;
+  opacity: 0;
+  position: absolute;
+  top: -1.2rem;
+  right: 0;
+  left: 0;
+  animation-name: rotate;
+  animation-duration: 6s; /* Total duration adjusted for cycling through each */
+  animation-iteration-count: infinite;
+}
+
+.rotatingText-noun:nth-of-type(1) {
+  animation-delay: 0s;
+}
+
+.rotatingText-noun:nth-of-type(2) {
+  animation-delay: 2s; /* Delay adjusted for sequential appearance */
+}
+
+.rotatingText-noun:nth-of-type(3) {
+  animation-delay: 4s;
+}
+
+@keyframes rotate {
+  0%, 100% {
+    opacity: 0;
+  }
+  
+  5%, 30% {
+    opacity: 1;
+  }
+
+  35%, 100% {
+    opacity: 0;
+  }
+}
+
 
 //styles for splash buttons
 .body-home-splash-buttons {

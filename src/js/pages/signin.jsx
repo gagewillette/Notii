@@ -3,6 +3,7 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth, db } from "../../backend/firebase";
 import { useNavigate } from "react-router-dom";
 import { doc, setDoc } from "firebase/firestore";
+import "../../styles/signin.scss";
 
 export default function SignIn() {
   //for google auth
@@ -31,9 +32,7 @@ export default function SignIn() {
         photoURL: user.photoURL,
       });
 
-
       nav("/notes");
-
     } catch (error) {
       // Handle Errors here.
       const errorCode = error.code;
@@ -47,8 +46,10 @@ export default function SignIn() {
   };
 
   return (
-    <button onClick={signInWithGoogle} id="google-sign-in">
-      Sign In With Google
-    </button>
+    <div className="sign-in-wrapper">
+      <button onClick={signInWithGoogle} id="google-sign-in">
+        Sign In With Google
+      </button>
+    </div>
   );
 }
