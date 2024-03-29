@@ -1,22 +1,34 @@
-import React from "react";
-import { useState } from "react";
-import {NoteFile} from "./file.jsx";
-import FileComp from "./file.jsx";
+import React, { useEffect, useState } from "react";
+import {}
+import Note from "./note"; 
 
 
 export default function FileViewer() {
-  const files = useState([]);
+  const [notes, setNotes] = useState([]);
 
-  files.push(new NoteFile("file1", "this is file 1"));
+  useEffect(() => {
+    const fetchNotes = async () => {
+      const fetchedNotes = await getNotes();
+      setNotes(fetchedNotes);
+    };
 
-return (
+    fetchNotes();
+
+
+  }, []);
+
+  };
+
+  return (
     <div className="file-viewer">
-        <h1>File Viewer</h1>
-        <ul>
-            {files.map((file) => {
-                return <li key={file.id}><FileComp notefile={file} /></li>;
-            })}
-        </ul>
+      <h1>Notes</h1>
+      <ul>
+        {notes.map((note) => (
+          <li key={note.id}>
+            <NoteComponent note={note} onDelete={handleDeleteNote} />
+          </li>
+        ))}
+      </ul>
     </div>
-);
+  );
 }
