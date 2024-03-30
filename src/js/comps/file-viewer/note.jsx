@@ -1,4 +1,6 @@
-function Note({ note, onDelete }) {
+
+
+export default function Note({ note, onDelete }) {
     return (
       <div className="note">
         <h2>{note.title}</h2>

@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {}
-import Note from "./note"; 
-
+import Note from "./note";
 
 export default function FileViewer() {
   const [notes, setNotes] = useState([]);
@@ -13,11 +11,7 @@ export default function FileViewer() {
     };
 
     fetchNotes();
-
-
   }, []);
-
-  };
 
   return (
     <div className="file-viewer">
