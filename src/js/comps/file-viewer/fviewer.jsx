@@ -15,7 +15,11 @@ export default function FileViewer() {
 
   return (
     <div className="file-viewer">
-      <h1>Notes</h1>
+      <div className="file-viewer-header">
+        <h1>Notes</h1>
+        <AddNoteButton />
+      </div>
+
       <ul>
         {notes.map((note) => (
           <li key={note.id}>
@@ -25,4 +29,14 @@ export default function FileViewer() {
       </ul>
     </div>
   );
+}
+
+function AddNoteButton() {
+  return <button onClick={addNote}>Add Note</button>;
+}
+
+
+const AddNote = () =>
+{
+//add note logic
 }
