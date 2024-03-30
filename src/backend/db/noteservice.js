@@ -4,6 +4,7 @@ import { collection, getDocs, addDoc, deleteDoc, doc } from "firebase/firestore"
 const notesCollectionRef = collection(db, "notes");
 
 export const addNote = async (note) => {
+    console.log("adding note");
   await addDoc(notesCollectionRef, note);
 };
 

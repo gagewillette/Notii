@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Note from "./note";
+import "../../../styles/fileviewer.scss";
+import { addNote, getNotes } from "../../../backend/db/noteservice";
 
 export default function FileViewer() {
   const [notes, setNotes] = useState([]);
@@ -23,7 +25,7 @@ export default function FileViewer() {
       <ul>
         {notes.map((note) => (
           <li key={note.id}>
-            <NoteComponent note={note} onDelete={handleDeleteNote} />
+            <Note note={note} onDelete={handleDeleteNote} />
           </li>
         ))}
       </ul>
@@ -32,11 +34,19 @@ export default function FileViewer() {
 }
 
 function AddNoteButton() {
-  return <button onClick={addNote}>Add Note</button>;
+  return <button onClick={AddNote}>+</button>;
 }
 
 
+const handleDeleteNote = (id) => {
+    console.log("Deleting note with id: " + id);
+    //deleteNote(id);
+};
+
 const AddNote = () =>
 {
-//add note logic
+    addNote({
+        title: "New Note",
+        content: "New Note Content",
+    });
 }
