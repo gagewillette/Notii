@@ -76,14 +76,17 @@
 @keyframes rotate {
   0%, 100% {
     opacity: 0;
+    transform: translate3d(0, 50px, 0);
   }
   
   5%, 30% {
     opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 
   35%, 100% {
     opacity: 0;
+    transform: translate3d(0, -25px, 0);
   }
 }
 
