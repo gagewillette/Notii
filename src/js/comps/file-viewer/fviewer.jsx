@@ -22,7 +22,7 @@ export default function FileViewer() {
         <AddNoteButton />
       </div>
 
-      <ul>
+      <ul id="note-list">
         {notes.map((note) => (
           <li key={note.id}>
             <Note note={note} onDelete={handleDeleteNote} />
