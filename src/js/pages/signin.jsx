@@ -33,19 +33,21 @@ export default function SignIn() {
       });
 
       nav("/notes");
-    } catch (error) {      
+    } catch (error) {
       const errorCode = error.code;
-    
+
       const errorMessage = error.message;
-    
+
       const email = error.email;
-    
+
       const credential = GoogleAuthProvider.credentialFromError(error);
     }
   };
 
   return (
     <div className="sign-in-wrapper">
+
+      <h1>Sign In</h1>
       <button onClick={signInWithGoogle} id="google-sign-in">
         Sign In With Google
       </button>
