@@ -10,7 +10,7 @@
     margin-right: 10px;
 
     button {
-        font-size: 25px;
+        font-size: 15px;
         border: none;
         background-color: app.$neutral-dark;
         color: white;
@@ -18,4 +18,9 @@
         border-radius: 10px;
     }
 
+}
+
+#note-list
+{
+    list-style-type: decimal-leading-zero;
 }
