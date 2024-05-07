@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Note from "./note";
 import "../../../styles/fileviewer.scss";
 import { addNote, getNotes, deleteNote } from "../../../backend/db/noteservice";
+import { set } from "firebase/database";
 
 export default function FileViewer() {
   const [notes, setNotes] = useState([]);
@@ -21,11 +22,11 @@ export default function FileViewer() {
   }, []);
 
   const handleSaveNote = () => {
-    console.log("Saving note");
+    console.log("Saving note: ");
 
     //add note to db
     addNote({
-      title: newNoteTitle,
+      title: newNoteTitle ? newNoteTitle : "New Note",
       content: newNoteContent,
     });
 

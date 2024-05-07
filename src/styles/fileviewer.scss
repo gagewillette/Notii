@@ -1,6 +1,5 @@
 @use "../app.scss";
 
-
 .file-viewer-header
 {
     display: flex;
@@ -20,7 +19,78 @@
 
 }
 
+ul{
+    list-style-type: none;
+    padding: 0;
+}
+
 #note-list
 {
-    list-style-type: decimal-leading-zero;
+
+}
+
+.note
+{
+
+    padding: 5px 10px;
+    margin: 10px;
+    border: 1px solid app.$neutral-light;
+    border-radius: 10px;
+    background-color: app.$neutral-light;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .note-content
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .note-title
+    {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .note-text
+    {
+        font-size: 15px;
+    }
+
+    .note-date
+    {
+        font-size: 10px;
+        color: app.$neutral-dark;
+    }
+
+    .note-actions
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    button
+    {
+        font-size: 15px;
+        border: none;
+        background-color: app.$neutral-dark;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+
+    &:hover
+    {
+        background-color: lightgray;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
 }
