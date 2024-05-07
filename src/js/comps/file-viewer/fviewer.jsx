@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Note from "./note";
 import "../../../styles/fileviewer.scss";
-import { addNote, getNotes } from "../../../backend/db/noteservice";
+import { addNote, getNotes, deleteNote } from "../../../backend/db/noteservice";
 
 export default function FileViewer() {
   const [notes, setNotes] = useState([]);
@@ -43,7 +43,7 @@ export default function FileViewer() {
 
   const handleDeleteNote = (id) => {
     console.log("Deleting note with id: " + id);
-    //deleteNote(id);
+    deleteNote(id);
   };
 
   return (
