@@ -6,6 +6,10 @@ import { addNote, getNotes } from "../../../backend/db/noteservice";
 export default function FileViewer() {
   const [notes, setNotes] = useState([]);
   const [isMakingNewNote, setIsMakingNewNote] = useState(false);
+  const [newNoteTitle, setNewNoteTitle] = useState("");
+
+  //probaby remove this
+  const [newNoteContent, setNewNoteContent] = useState("");
 
   useEffect(() => {
     const fetchNotes = async () => {
@@ -16,24 +20,31 @@ export default function FileViewer() {
     fetchNotes();
   }, []);
 
-  const AddNote = () => {
-    setIsMakingNewNote(true);
-  
-    //create a new note sub comp that is editable
-  
+  const handleSaveNote = () => {
+    console.log("Saving note");
+
     //add note to db
     addNote({
-      title: "New Note",
-      content: "New Note Content",
+      title: newNoteTitle,
+      content: newNoteContent,
     });
+
+    setIsMakingNewNote(false);
   };
 
+  const handleCancelNote = () => {
+    console.log("Cancelling note");
+    setIsMakingNewNote(false);
+  };
+
+  const AddNote = () => {
+    setIsMakingNewNote(true);
+  };
 
   const handleDeleteNote = (id) => {
     console.log("Deleting note with id: " + id);
     //deleteNote(id);
   };
-  
 
   return (
     <div className="file-viewer">
@@ -45,8 +56,21 @@ export default function FileViewer() {
       <ul>
         {isMakingNewNote && (
           <div className="new-note">
-            <input type="text" placeholder="Note Title" />
-            <textarea placeholder="Note Content"></textarea>
+            <input
+              type="text"
+              placeholder="Note Title"
+              onChange={(e) => {
+                setNewNoteTitle(e.target.value);
+              }}
+            />
+
+            {/* probably remove this */}
+            <textarea
+              placeholder="Note Content"
+              onChange={(e) => {
+                setNewNoteContent(e.target.value);
+              }}
+            ></textarea>
             <button onClick={handleSaveNote}>Save</button>
             <button onClick={handleCancelNote}>Cancel</button>
           </div>
@@ -61,5 +85,3 @@ export default function FileViewer() {
     </div>
   );
 }
-
-
