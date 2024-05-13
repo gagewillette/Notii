@@ -1,12 +1,23 @@
 import React, { useEffect, useState } from "react";
 import Note from "./note";
 import "../../../styles/fileviewer.scss";
+import { deleteNote, addNote  } from "../../../backend/db/noteservice";
 
 
-export default function FileViewer({notes}) {
+export default function FileViewer({notes, setSelectedNote}) {
   const [isMakingNewNote, setIsMakingNewNote] = useState(false);
   const [newNoteTitle, setNewNoteTitle] = useState("");
 
+
+  const handleSaveNote = () => {
+    //add note to db
+    addNote({
+      title: newNoteTitle ? newNoteTitle : "New Note",
+      content: "",
+    });
+
+    setIsMakingNewNote(false);
+  };
 
 
   const handleCancelNote = () => {
@@ -49,7 +60,7 @@ export default function FileViewer({notes}) {
 
         {notes.map((note) => (
           <li key={note.id}>
-            <Note note={note} onDelete={handleDeleteNote} />
+            <Note note={note} onDelete={handleDeleteNote} setSelectedNote={setSelectedNote} />
           </li>
         ))}
       </ul>

@@ -1,7 +1,9 @@
-export default function Note({ note, onDelete }) {
+export default function Note({ note, onDelete, setSelectedNote }) {
   
   const handleFViewerNoteSelect = () => {
-    console.log("note selected", note);
+    setSelectedNote(note); 
+    console.log("note selected"); 
+  
   };
 
 

@@ -12,6 +12,7 @@ const NotesEditor = () => {
   const [content, setContent] = useState("");
   const [isRecording, setIsRecording] = useState(false);
   const [notes, setNotes] = useState([]);
+  const [selectedNote, setSelectedNote] = useState(null);
 
   useEffect(() => {
     const fetchNotes = async () => {
@@ -33,16 +34,6 @@ const NotesEditor = () => {
   }, []);
 
 
-  const handleSaveNote = () => {
-    //add note to db
-    addNote({
-      title: newNoteTitle ? newNoteTitle : "New Note",
-      content: "",
-    });
-
-    setIsMakingNewNote(false);
-  };
-
 
   const startVoiceDictation = () => {
     console.log("start voice dictation");
@@ -57,14 +48,14 @@ const NotesEditor = () => {
   return (
     <div className="editor-main">
       {/* This is the file viewer on the left side of the editor */}
-      <FileViewer notes={notes} />
+      <FileViewer notes={notes} setSelectedNote={setSelectedNote} />
 
       <div className="editor-wrapper">
         <h2>Notii Editor</h2>
 
         {/* Placeholder of note content for now */}
         <div className="note-content">
-          <p>{}</p>
+          <p>{selectedNote.content}</p>
         </div>
 
         {/*isRecording ? (
