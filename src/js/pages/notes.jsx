@@ -7,7 +7,6 @@ import MicrophoneComponent from "../comps/microphone";
 import FileViewer from "../comps/file-viewer/fviewer";
 import { addNote, getNotes, deleteNote } from "../../backend/db/noteservice";
 
-
 const NotesEditor = () => {
   const [content, setContent] = useState("");
   const [isRecording, setIsRecording] = useState(false);
@@ -33,8 +32,6 @@ const NotesEditor = () => {
     fetchNotes();
   }, []);
 
-
-
   const startVoiceDictation = () => {
     console.log("start voice dictation");
     setIsRecording(true);
@@ -53,9 +50,16 @@ const NotesEditor = () => {
       <div className="editor-wrapper">
         <h2>Notii Editor</h2>
 
+        {selectedNote === null ? (
+          <div className="select-note-text">
+            <h3>Select a note to view it</h3>
+          </div>
+        ) : (<div></div>
+        )}
+
         {/* Placeholder of note content for now */}
         <div className="note-content">
-          <p>{selectedNote.content}</p>
+          <p>{selectedNote ? selectedNote.content : ""}</p>
         </div>
 
         {/*isRecording ? (
@@ -78,7 +82,6 @@ const NotesEditor = () => {
 };
 
 export default NotesEditor;
-
 
 const loadNotesToLocalStore = (notes) => {
   for (let i = 0; i < notes.length; i++) {
