@@ -9,9 +9,6 @@ export default function FileViewer() {
   const [isMakingNewNote, setIsMakingNewNote] = useState(false);
   const [newNoteTitle, setNewNoteTitle] = useState("");
 
-  //probaby remove this
-  const [newNoteContent, setNewNoteContent] = useState("");
-
   useEffect(() => {
     const fetchNotes = async () => {
       const fetchedNotes = await getNotes();
@@ -35,7 +32,7 @@ export default function FileViewer() {
     //add note to db
     addNote({
       title: newNoteTitle ? newNoteTitle : "New Note",
-      content: newNoteContent,
+      content: "",
     });
 
     setIsMakingNewNote(false);

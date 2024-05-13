@@ -5,10 +5,13 @@ import "../../styles/notes.scss";
 import Mousetrap from "mousetrap";
 import MicrophoneComponent from "../comps/microphone";
 import FileViewer from "../comps/file-viewer/fviewer";
+import { useNotes } from "../contexts/notes_provider";
 
 const NotesEditor = () => {
   const [content, setContent] = useState("");
   const [isRecording, setIsRecording] = useState(false);
+  const {selectedNote} = useNotes();
+
 
   const startVoiceDictation = () => {
     console.log("start voice dictation");
@@ -22,12 +25,16 @@ const NotesEditor = () => {
 
   return (
     <div className="editor-main">
-
       {/* This is the file viewer on the left side of the editor */}
       <FileViewer />
 
       <div className="editor-wrapper">
         <h2>Notii Editor</h2>
+
+        {/* Placeholder of note content for now */}
+        <div className="note-content">
+          <p>{selectedNote.content}</p>
+        </div>
 
         {/*isRecording ? (
           <MicrophoneComponent />

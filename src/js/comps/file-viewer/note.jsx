@@ -1,6 +1,12 @@
 export default function Note({ note, onDelete }) {
+  
+  const handleFViewerNoteSelect = () => {
+    console.log("note selected", note);
+  };
+
+
   return (
-    <div className="note">
+    <div onClick={handleFViewerNoteSelect} className="note">
       <div className="note-header">
         <h2>{note.title}</h2>
         <button onClick={() => onDelete(note.id)}>🗑️</button>
