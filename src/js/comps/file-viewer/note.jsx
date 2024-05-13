@@ -1,9 +1,12 @@
 export default function Note({ note, onDelete }) {
   return (
-    <div  className="note">
-      <h2>{note.title}</h2>
+    <div className="note">
+      <div className="note-header">
+        <h2>{note.title}</h2>
+        <button onClick={() => onDelete(note.id)}>🗑️</button>
+      </div>
+
       <p>{note.content}</p>
-      <button onClick={() => onDelete(note.id)}>Delete</button>
     </div>
   );
 }

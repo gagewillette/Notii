@@ -15,15 +15,23 @@ export default function FileViewer() {
   useEffect(() => {
     const fetchNotes = async () => {
       const fetchedNotes = await getNotes();
+
+      //set notes in state
       setNotes(fetchedNotes);
+
+      //load notes into local storage
+      loadNotesToLocalStore(fetchedNotes);
+
+      //cleanup local store
+      return () => {
+        localStorage.clear();
+      };
     };
 
     fetchNotes();
   }, []);
 
   const handleSaveNote = () => {
-    console.log("Saving note: ");
-
     //add note to db
     addNote({
       title: newNoteTitle ? newNoteTitle : "New Note",
@@ -34,7 +42,6 @@ export default function FileViewer() {
   };
 
   const handleCancelNote = () => {
-    console.log("Cancelling note");
     setIsMakingNewNote(false);
   };
 
@@ -43,7 +50,6 @@ export default function FileViewer() {
   };
 
   const handleDeleteNote = (id) => {
-    console.log("Deleting note with id: " + id);
     deleteNote(id);
   };
 
@@ -57,23 +63,19 @@ export default function FileViewer() {
       <ul>
         {isMakingNewNote && (
           <div className="new-note">
-            <input
-              type="text"
-              placeholder="Note Title"
-              onChange={(e) => {
-                setNewNoteTitle(e.target.value);
-              }}
-            />
-
-            {/* probably remove this */}
-            <textarea
-              placeholder="Note Content"
-              onChange={(e) => {
-                setNewNoteContent(e.target.value);
-              }}
-            ></textarea>
-            <button onClick={handleSaveNote}>Save</button>
-            <button onClick={handleCancelNote}>Cancel</button>
+            <div className="new-note-fields">
+              <input
+                type="text"
+                placeholder="Note Title"
+                onChange={(e) => {
+                  setNewNoteTitle(e.target.value);
+                }}
+              />
+            </div>
+            <div className="new-note-buttons">
+              <button onClick={handleSaveNote}>Save</button>
+              <button onClick={handleCancelNote}>Cancel</button>
+            </div>
           </div>
         )}
 
@@ -86,3 +88,9 @@ export default function FileViewer() {
     </div>
   );
 }
+
+const loadNotesToLocalStore = (notes) => {
+  for (let i = 0; i < notes.length; i++) {
+    localStorage.setItem(notes[i].id, JSON.stringify(notes[i]));
+  }
+};

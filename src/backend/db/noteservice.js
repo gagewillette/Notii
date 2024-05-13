@@ -11,7 +11,8 @@ const notesCollectionRef = collection(db, "notes");
 
 export const addNote = async (note) => {
   console.log("adding note");
-  await addDoc(notesCollectionRef, note);
+  const noteData = {...note , timestamp: new Date()}
+  await addDoc(notesCollectionRef, noteData);
   RefreshPage();
 };
 
