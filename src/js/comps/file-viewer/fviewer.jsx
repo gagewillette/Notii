@@ -1,42 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Note from "./note";
 import "../../../styles/fileviewer.scss";
-import { addNote, getNotes, deleteNote } from "../../../backend/db/noteservice";
-import { set } from "firebase/database";
 
-export default function FileViewer() {
-  const [notes, setNotes] = useState([]);
+
+export default function FileViewer({notes}) {
   const [isMakingNewNote, setIsMakingNewNote] = useState(false);
   const [newNoteTitle, setNewNoteTitle] = useState("");
 
-  useEffect(() => {
-    const fetchNotes = async () => {
-      const fetchedNotes = await getNotes();
 
-      //set notes in state
-      setNotes(fetchedNotes);
-
-      //load notes into local storage
-      loadNotesToLocalStore(fetchedNotes);
-
-      //cleanup local store
-      return () => {
-        localStorage.clear();
-      };
-    };
-
-    fetchNotes();
-  }, []);
-
-  const handleSaveNote = () => {
-    //add note to db
-    addNote({
-      title: newNoteTitle ? newNoteTitle : "New Note",
-      content: "",
-    });
-
-    setIsMakingNewNote(false);
-  };
 
   const handleCancelNote = () => {
     setIsMakingNewNote(false);
@@ -86,8 +57,3 @@ export default function FileViewer() {
   );
 }
 
-const loadNotesToLocalStore = (notes) => {
-  for (let i = 0; i < notes.length; i++) {
-    localStorage.setItem(notes[i].id, JSON.stringify(notes[i]));
-  }
-};

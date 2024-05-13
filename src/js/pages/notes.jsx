@@ -5,12 +5,43 @@ import "../../styles/notes.scss";
 import Mousetrap from "mousetrap";
 import MicrophoneComponent from "../comps/microphone";
 import FileViewer from "../comps/file-viewer/fviewer";
-import { useNotes } from "../contexts/notes_provider";
+import { addNote, getNotes, deleteNote } from "../../backend/db/noteservice";
+
 
 const NotesEditor = () => {
   const [content, setContent] = useState("");
   const [isRecording, setIsRecording] = useState(false);
-  const {selectedNote} = useNotes();
+  const [notes, setNotes] = useState([]);
+
+  useEffect(() => {
+    const fetchNotes = async () => {
+      const fetchedNotes = await getNotes();
+
+      //set notes in state
+      setNotes(fetchedNotes);
+
+      //load notes into local storage
+      loadNotesToLocalStore(fetchedNotes);
+
+      //cleanup local store
+      return () => {
+        localStorage.clear();
+      };
+    };
+
+    fetchNotes();
+  }, []);
+
+
+  const handleSaveNote = () => {
+    //add note to db
+    addNote({
+      title: newNoteTitle ? newNoteTitle : "New Note",
+      content: "",
+    });
+
+    setIsMakingNewNote(false);
+  };
 
 
   const startVoiceDictation = () => {
@@ -26,14 +57,14 @@ const NotesEditor = () => {
   return (
     <div className="editor-main">
       {/* This is the file viewer on the left side of the editor */}
-      <FileViewer />
+      <FileViewer notes={notes} />
 
       <div className="editor-wrapper">
         <h2>Notii Editor</h2>
 
         {/* Placeholder of note content for now */}
         <div className="note-content">
-          <p>{selectedNote.content}</p>
+          <p>{}</p>
         </div>
 
         {/*isRecording ? (
@@ -56,3 +87,10 @@ const NotesEditor = () => {
 };
 
 export default NotesEditor;
+
+
+const loadNotesToLocalStore = (notes) => {
+  for (let i = 0; i < notes.length; i++) {
+    localStorage.setItem(notes[i].id, JSON.stringify(notes[i]));
+  }
+};
