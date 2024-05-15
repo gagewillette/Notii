@@ -1,3 +1,5 @@
+import "../../../styles/note_component.scss";
+
 export default function Note({ note, onDelete, setSelectedNote }) {
   
   const handleFViewerNoteSelect = () => {
