@@ -1,18 +1,21 @@
 @use "../app.scss";
 
 
-.file-viewer
-{
-  flex: 1;
-  border-right: 1px solid black;
-  height: 100vh;
-  min-width: 250px;
+.file-viewer {
+    position: relative; /* Add this line */
+    flex: 1;
+    border-right: 1px solid black;
+    height: 100vh;
+    min-width: 250px;
+    max-width: 250px;
+    z-index: 1;
+    top: 0;
+    left: 0;
 }
 
 
 
-.file-viewer-header
-{
+.file-viewer-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -29,29 +32,27 @@
     }
 }
 
-ul{
+ul {
     list-style-type: none;
     padding: 0;
 }
 
 
 
-.new-note
-{
+.new-note {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 5px;
 
-    .new-note-fields
-    {
+    .new-note-fields {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         width: 100%;
-        
+
 
         input {
             width: 60%;
@@ -62,16 +63,14 @@ ul{
 
     }
 
-    .new-note-buttons
-{
+    .new-note-buttons {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         width: 60%;
 
-        button
-        {
+        button {
             cursor: pointer;
             border: none;
             background-color: app.$neutral-dark;
@@ -85,8 +84,7 @@ ul{
 
 
 
-.note
-{
+.note {
 
     padding: 5px 10px;
     margin: 10px;
@@ -98,8 +96,7 @@ ul{
     justify-content: space-between;
     align-items: start;
 
-    .note-content
-    {
+    .note-content {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -107,8 +104,7 @@ ul{
         width: 100%;
     }
 
-    .note-header
-    {
+    .note-header {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -121,8 +117,7 @@ ul{
 
     }
 
-    button
-    {
+    button {
         font-size: 15px;
         border: none;
         background-color: app.$neutral-dark;
@@ -133,8 +128,7 @@ ul{
         padding: 5px;
     }
 
-    &:hover
-    {
+    &:hover {
         background-color: lightgray;
         cursor: pointer;
         transition: all 0.3s;
@@ -143,4 +137,16 @@ ul{
             display: block;
         }
     }
+}
+
+// sidebar toggle button
+.sidebar-button {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Ensure it's centered vertically */
+    left: 100%; /* Move to the right of the sidebar */
+    z-index: 5; /* Ensure it's above other elements */
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
 }
