@@ -40,7 +40,7 @@ export default function FileViewer({ notes, setSelectedNote }) {
       <Sidebar collapsed={collapsed}>
         <div className="file-viewer">
           <div className="file-viewer-header">
-            <h1>Notes</h1>
+            <h1>Notii</h1>
             <button onClick={AddNote}>+</button>
           </div>
 
