@@ -16,8 +16,11 @@ function App() {
 
   
   return (
+    //router component
     <Router>
+      //define each of the routes
       <Routes>
+        //define the path that will be typed into the browser, and for each path specify the component you want to render
         <Route path="/" element={<Home />} />
         <Route path="/notes" element={<NotesEditor />} />
         <Route path="/signin" element={<SignIn />} />
